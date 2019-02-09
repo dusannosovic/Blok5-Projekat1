@@ -57,9 +57,9 @@ namespace MVVM1.Model
             {
                 this.ValidationErrors["Password"] = "Password cannot be empty.";
             }
-            else if((int)this.password[0] >= 48 && (int)this.password[0] <= 57)
+            else if((int)this.username[0] >= 48 && (int)this.username[0] <= 57)
             {
-                this.ValidationErrors["Password"] = "Password cannot start with number";
+                this.ValidationErrors["Username"] = "Username cannot start with number";
             }
             if (string.IsNullOrWhiteSpace(this.username))
             {
@@ -69,6 +69,44 @@ namespace MVVM1.Model
             {
                 this.ValidationErrors["Password"] = "Password must be longer";
             }
+        }
+
+        protected override void ValidateSelfList(UserList users)
+        {
+            bool usernameverify = false;
+            foreach (Users user in users.Users)
+            {
+                if (this.username == user.Username)
+                    usernameverify = true;
+            }
+            if (usernameverify)
+            {
+                this.ValidationErrors["Username"] = "Username already exist";
+            }
+        }
+
+        protected override void ValidateSelfListLogin(UserList users)
+        {
+            bool passwordverify = false;
+            bool usernameverify = false;
+            foreach(Users user in users.Users)
+            {
+                if (user.password == this.username && user.password != this.password)
+                {
+                    passwordverify = true;
+                    usernameverify = false;
+                }
+                else if (user.password == this.username && user.password == this.password)
+                {
+                    passwordverify = true;
+                    usernameverify = true;
+                }
+            }
+
+            if (passwordverify && !usernameverify)
+                this.ValidationErrors["Password"] = "Wrong password";
+            if (!passwordverify && !usernameverify)
+                this.ValidationErrors["Username"] = "Wrong username";
         }
     }
 }

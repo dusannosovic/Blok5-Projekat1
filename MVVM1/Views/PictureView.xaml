@@ -24,7 +24,6 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="Notes:" FontSize="20"/>
             <ListView ItemsSource="{Binding Pictures}"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
                           ScrollViewer.VerticalScrollBarVisibility="Auto"/>

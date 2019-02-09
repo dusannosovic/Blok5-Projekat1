@@ -44,16 +44,18 @@ namespace MVVM1.ViewModel
         {
             bool valid = false;
             currentUsers = Serializer.Deserialize();
+
             foreach(Users user in currentUsers.Users)
             {
                 if(CurrentUser.Username == user.Username && CurrentUser.Password == user.Password)
                 {
                     curUserLog = user;
-                    valid = true;
                 }
             }
-            if (valid)
+            CurrentUser.ValidateLogin(currentUsers);
+            if (CurrentUser.IsValid)
             {
+                MenuViewModel.mode = "l";
                 Application.Current.MainWindow.Content = new MenuViewModel();
                 MenuViewModel.currentUser = curUserLog;
                 PictureViewModel.picturesChange(curUserLog);
@@ -65,11 +67,17 @@ namespace MVVM1.ViewModel
             CurrentUser.Validate();
             if (CurrentUser.IsValid)
             {
-                currentUsers.Users.Add(CurrentUser);
-                curUserLog = CurrentUser;
-                Serializer.Serialize(currentUsers);
-                Application.Current.MainWindow.Content = new MenuViewModel();
-                MenuViewModel.currentUser = CurrentUser;
+                currentUsers = Serializer.Deserialize();
+                CurrentUser.ValidateRegister(currentUsers);
+                if (CurrentUser.IsValid)
+                {
+                    MenuViewModel.mode = "r";
+                    currentUsers.Users.Add(CurrentUser);
+                    curUserLog = CurrentUser;
+                    Serializer.Serialize(currentUsers);
+                    Application.Current.MainWindow.Content = new MenuViewModel();
+                    MenuViewModel.currentUser = CurrentUser;
+                }
             }
         }
     }

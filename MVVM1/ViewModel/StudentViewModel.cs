@@ -30,7 +30,7 @@ namespace MVVM1.ViewModel
             user = MenuViewModel.currentUser;
             BrowseCommand = new MyICommand(OnBrowse);
             AddCommand = new MyICommand(OnAdd);
-            Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"G:\8.semestar\Grafika\Projekat\MVVM1\bin\Debug\addLogo.png", true);
+            Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\bin\Debug\addLogo.png", true);
             bitmapSource = BitmapConversion.BitmapToBitmapSource(bitmap);
         }
 

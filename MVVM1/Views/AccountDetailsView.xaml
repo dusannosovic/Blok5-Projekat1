@@ -10,8 +10,10 @@
              d:DesignHeight="415" d:DesignWidth="300">
     <Grid>
         <Button Content="Change" HorizontalAlignment="Left" Margin="62,328,0,0" VerticalAlignment="Top" Width="167" Height="53" Command="{Binding ChangeCommand}"/>
-        <TextBox HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="62,60,0,0" Text="{Binding}"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="62,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Text="{Binding}"/>
+        <TextBox HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="62,60,0,0" Text="{Binding CurrentUser.Username}"/>
+        <TextBox HorizontalAlignment="Left" Height="55" Margin="62,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Text="{Binding CurrentUser.Password}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="62,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="42" Text="{Binding CurrentUser.ValidationErrors[Username]}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="62,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="41" Text="{Binding CurrentUser.ValidationErrors[Password]}"/>
 
     </Grid>
 </UserControl>

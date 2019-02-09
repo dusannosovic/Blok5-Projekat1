@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,10 @@ namespace MVVM1
 
         protected abstract void ValidateSelf();
 
+        protected abstract void ValidateSelfList(UserList users);
+
+        protected abstract void ValidateSelfListLogin(UserList users);
+
         public void Validate()
         {
             this.ValidationErrors.Clear();
@@ -26,5 +31,23 @@ namespace MVVM1
             this.OnPropertyChanged("IsValid");
             this.OnPropertyChanged("ValidationErrors");
         }
+
+        public void ValidateLogin(UserList users)
+        {
+            this.ValidationErrors.Clear();
+            this.ValidateSelfListLogin(users);
+            this.IsValid = this.ValidationErrors.IsValid;
+            this.OnPropertyChanged("IsValid");
+            this.OnPropertyChanged("ValidationErrors");
+        }
+        public void ValidateRegister(UserList users)
+        {
+            this.ValidationErrors.Clear();
+            this.ValidateSelfList(users);
+            this.IsValid = this.ValidationErrors.IsValid;
+            this.OnPropertyChanged("IsValid");
+            this.OnPropertyChanged("ValidationErrors");
+        }
+
     }
 }

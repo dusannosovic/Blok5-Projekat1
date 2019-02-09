@@ -16,12 +16,18 @@ namespace MVVM1.ViewModel
         private AccountDetailsViewModel accountDetailsViewModel = new AccountDetailsViewModel();
         private BindableBase currentViewModel;
         public static Users currentUser;
+        public static string mode = null;
 
         public MenuViewModel()
         {
             NavCommand = new MyICommand<string>(OnNav);
             //CurrentViewModel = homeViewModel;
-            CurrentViewModel = pictureViewModel;
+            if (mode == "r")
+                CurrentViewModel = studentViewModel;
+            else if (mode == "l")
+                CurrentViewModel = pictureViewModel;
+            else
+                CurrentViewModel = pictureViewModel;
             //CurrentViewModel = accountDetailsViewModel;
         }
 
