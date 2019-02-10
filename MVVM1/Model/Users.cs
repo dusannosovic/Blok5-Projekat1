@@ -10,7 +10,7 @@ namespace MVVM1.Model
     {
         private string password;
         private string username;
-        private List<Picture> pictures;
+        private List<Picture> pictures = new List<Picture>();
 
         public string Password
         {
@@ -53,21 +53,13 @@ namespace MVVM1.Model
 
         protected override void ValidateSelf()
         {
-            if (string.IsNullOrWhiteSpace(this.password))
-            {
-                this.ValidationErrors["Password"] = "Password cannot be empty.";
-            }
-            else if((int)this.username[0] >= 48 && (int)this.username[0] <= 57)
-            {
-                this.ValidationErrors["Username"] = "Username cannot start with number";
-            }
             if (string.IsNullOrWhiteSpace(this.username))
             {
                 this.ValidationErrors["Username"] = "Username cannot be empty.";
             }
-            if (this.password.Length < 6)
+            else if ((int)this.username[0] >= 48 && (int)this.username[0] <= 57)
             {
-                this.ValidationErrors["Password"] = "Password must be longer";
+                this.ValidationErrors["Username"] = "Username cannot start with number";
             }
         }
 
@@ -91,12 +83,12 @@ namespace MVVM1.Model
             bool usernameverify = false;
             foreach(Users user in users.Users)
             {
-                if (user.password == this.username && user.password != this.password)
+                if (user.username == this.username && user.password != this.password)
                 {
                     passwordverify = true;
                     usernameverify = false;
                 }
-                else if (user.password == this.username && user.password == this.password)
+                else if (user.username == this.username && user.password == this.password)
                 {
                     passwordverify = true;
                     usernameverify = true;
@@ -107,6 +99,18 @@ namespace MVVM1.Model
                 this.ValidationErrors["Password"] = "Wrong password";
             if (!passwordverify && !usernameverify)
                 this.ValidationErrors["Username"] = "Wrong username";
+        }
+
+        protected override void ValidateSelfPass()
+        {
+            if (string.IsNullOrWhiteSpace(this.password))
+            {
+                this.ValidationErrors["Password"] = "Password cannot be empty.";
+            }
+            else if (this.password.Length < 6)
+            {
+                this.ValidationErrors["Password"] = "Password must be longer";
+            }
         }
     }
 }

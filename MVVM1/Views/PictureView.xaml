@@ -16,17 +16,18 @@
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type data:PictureBitmap}">
             <StackPanel Orientation="Vertical">
-                <Image Source="{Binding Picture}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" Width="60" />
-                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
-                <TextBlock Text="{Binding Description}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                <Image Source="{Binding Picture}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" Width="60"/>
+                <TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="14"/>
+                <TextBlock Text="{Binding Description}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontSize="12" FontWeight="SemiBold"/>
+                <TextBlock Text="{Binding Time}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  FontStyle="Italic" FontSize="10"/>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <ListView ItemsSource="{Binding Pictures}"
+            <ListView ItemsSource="{Binding Pictures}" HorizontalContentAlignment="Center"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          ScrollViewer.VerticalScrollBarVisibility="Auto" Height="400"/>
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" Height="400" Background="#8942f4"/>
         </StackPanel>
     </Grid>
 </UserControl>

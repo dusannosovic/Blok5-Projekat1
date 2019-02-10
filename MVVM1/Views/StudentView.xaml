@@ -12,24 +12,17 @@
     <!--UserControl.DataContext>
         <viewModel:StudentViewModel/>
     </-->
-    <UserControl.Resources>
-        <DataTemplate DataType="{x:Type data:Student}">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}" Width="100"/>
-                <TextBox Text="{Binding Path=LastName, Mode=TwoWay}" Width="100"/>
-                <TextBlock Text="{Binding Path=FullName, Mode=OneWay}"/>
-            </StackPanel>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid>
-        <Button Name="buttonAdd" Margin="56,42,56,313" Command="{Binding BrowseCommand}" Width="188">
+        <Button Name="buttonAdd" Margin="36,15,37,310" Command="{Binding BrowseCommand}">
             <Image Source="{Binding ButtonSource}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
             </Image>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="56,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Text="{Binding Title}"/>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="56,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Text="{Binding Description}"/>
-        <Button Content="Add" HorizontalAlignment="Left" Height="32" Margin="56,329,0,0" VerticalAlignment="Top" Width="188" Command="{Binding AddCommand}"/>
-        <TextBlock HorizontalAlignment="Left" Height="23" Margin="56,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Text="{Binding CurrentPicture.ValidationErrors[Uri]}"/>
-        <TextBlock HorizontalAlignment="Left" Height="18" Margin="57,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Text="{Binding CurrentPicture.ValidationErrors[Title]}"/>
+        <TextBox HorizontalAlignment="Left" Height="52" Margin="36,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding Title}" VerticalContentAlignment="Center" FontSize="25"/>
+        <TextBox HorizontalAlignment="Left" Height="52" Margin="36,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding Description}" VerticalContentAlignment="Center" FontSize="25"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="65" Margin="36,328,0,0" VerticalAlignment="Top" Width="227" Command="{Binding AddCommand}" FontSize="35" FontWeight="ExtraBold"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="36,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding CurrentPicture.ValidationErrors[Uri]}" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="36,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Text="{Binding CurrentPicture.ValidationErrors[Title]}" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,222,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Top" Height="30" Width="128" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,123,0,0" TextWrapping="Wrap" Text="Title:" VerticalAlignment="Top" Height="30" Width="165" FontSize="20"/>
     </Grid>
 </UserControl>

@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:MVVM1.Views"
         xmlns:viewModel="clr-namespace:MVVM1.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350">
+        Title="MainWindow" Height="480" Width="350">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -25,7 +25,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
-            <ContentControl Content="{Binding CurrentViewModel}" Margin="0,0,0,-49"/>
+            <ContentControl Content="{Binding CurrentViewModel}" Margin="0,0,0,0" Height="450" Width="300" />
         </Grid>
     </Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\background.png"></ImageBrush>
+    </Window.Background>
 </Window>

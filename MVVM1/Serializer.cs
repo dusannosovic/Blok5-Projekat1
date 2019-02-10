@@ -22,10 +22,41 @@ namespace MVVM1
         public static UserList Deserialize()
         {
             var serializer = new XmlSerializer(typeof(UserList));
-            using (var reader = XmlReader.Create("userslist.xml"))
+            try
             {
-                var userList = (UserList)serializer.Deserialize(reader);
-                return userList;
+                using (var reader = XmlReader.Create("userslist.xml"))
+                {
+                    var userList = (UserList)serializer.Deserialize(reader);
+                    return userList;
+                }
+            }
+            catch
+            {
+                return new UserList();
+            }
+        }
+        public static void SerializeUser(Users user)
+        {
+           var serializer = new XmlSerializer(user.GetType());
+            using (var writer = XmlWriter.Create("user.xml"))
+            {
+                serializer.Serialize(writer, user);
+            }
+        }
+        public static Users DeserializeUser()
+        {
+            var serializer = new XmlSerializer(typeof(Users));
+            try
+            {
+                using (var reader = XmlReader.Create("user.xml"))
+                {
+                    var user = (Users)serializer.Deserialize(reader);
+                    return user;
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
     }

@@ -11,6 +11,7 @@ namespace MVVM1.Model
         private string uri;
         private string title;
         private string description;
+        private string time;
 
         public string Uri
         {
@@ -48,6 +49,18 @@ namespace MVVM1.Model
                 }
             }
         }
+        public string Time
+        {
+            get { return time; }
+            set
+            {
+                if (time != value)
+                {
+                    time = value;
+                    OnPropertyChanged("Time");
+                }
+            }
+        }
 
         public Picture()
         {
@@ -59,6 +72,7 @@ namespace MVVM1.Model
             Uri = uri;
             Title = title;
             Description = description;
+            Time = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString();
         }
 
         protected override void ValidateSelf()

@@ -19,6 +19,8 @@ namespace MVVM1
 
         protected abstract void ValidateSelf();
 
+        protected abstract void ValidateSelfPass();
+
         protected abstract void ValidateSelfList(UserList users);
 
         protected abstract void ValidateSelfListLogin(UserList users);
@@ -44,6 +46,14 @@ namespace MVVM1
         {
             this.ValidationErrors.Clear();
             this.ValidateSelfList(users);
+            this.IsValid = this.ValidationErrors.IsValid;
+            this.OnPropertyChanged("IsValid");
+            this.OnPropertyChanged("ValidationErrors");
+        }
+        public void ValidatePass()
+        {
+            this.ValidationErrors.Clear();
+            this.ValidateSelfPass();
             this.IsValid = this.ValidationErrors.IsValid;
             this.OnPropertyChanged("IsValid");
             this.OnPropertyChanged("ValidationErrors");

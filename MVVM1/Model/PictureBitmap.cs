@@ -13,12 +13,15 @@ namespace MVVM1.Model
         public BitmapImage Picture { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        public string Time { get; set; }
         
-        public PictureBitmap(string uri, string title, string description)
+        public PictureBitmap(string uri, string title, string description,string datetime)
         {
             Picture = new BitmapImage(new Uri(uri));
             Title = title;
             Description = description;
+            Time = datetime;
         }
 
     }

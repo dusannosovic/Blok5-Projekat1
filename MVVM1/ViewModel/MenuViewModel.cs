@@ -18,7 +18,7 @@ namespace MVVM1.ViewModel
         private PictureViewModel pictureViewModel = new PictureViewModel();
         private AccountDetailsViewModel accountDetailsViewModel = new AccountDetailsViewModel();
         private BindableBase currentViewModel;
-        public static Users currentUser;
+        //public static Users current = null;
         public static string mode = null;
 
         public MenuViewModel()

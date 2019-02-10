@@ -28,7 +28,7 @@ namespace MVVM1.ViewModel
             Pictures.Clear();
             foreach(Picture userPic in user.Pictures)
             {
-                Pictures.Add(new PictureBitmap(userPic.Uri, userPic.Title, userPic.Description));
+                Pictures.Add(new PictureBitmap(userPic.Uri, userPic.Title, userPic.Description, userPic.Time));
             }
         }
 

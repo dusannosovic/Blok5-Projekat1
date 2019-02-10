@@ -10,7 +10,6 @@ namespace MVVM1.ViewModel
 {
     public class HomeViewModel : BindableBase
     {
-        private string homeViewStartMessage = "Kurac!";
         public MyICommand LoginCommand { get; set; }
         public MyICommand RegisterCommand { get; set; }
 
@@ -36,10 +35,6 @@ namespace MVVM1.ViewModel
             }
         }
 
-        public string HomeViewStartMessage
-        {
-            get { return homeViewStartMessage; } //return "Hello!";
-        }
         public void Login()
         {
             bool valid = false;
@@ -52,14 +47,17 @@ namespace MVVM1.ViewModel
                     curUserLog = user;
                 }
             }
-            CurrentUser.ValidateLogin(currentUsers);
-            if (CurrentUser.IsValid)
-            {
-                MenuViewModel.mode = "l";
-                Application.Current.MainWindow.Content = new MenuViewModel();
-                MenuViewModel.currentUser = curUserLog;
-                PictureViewModel.picturesChange(curUserLog);
-            }
+            
+                CurrentUser.ValidateLogin(currentUsers);
+                if (CurrentUser.IsValid)
+                {
+                    MenuViewModel.mode = "l";
+                    Application.Current.MainWindow.Content = new MenuViewModel();
+                    //MenuViewModel.current = curUserLog;
+                    Serializer.SerializeUser(curUserLog);
+                    PictureViewModel.picturesChange(curUserLog);
+                }
+            
         }
         public void Register()
         {
@@ -67,6 +65,8 @@ namespace MVVM1.ViewModel
             CurrentUser.Validate();
             if (CurrentUser.IsValid)
             {
+                CurrentUser.ValidatePass();
+                if (CurrentUser.IsValid) { 
                 currentUsers = Serializer.Deserialize();
                 CurrentUser.ValidateRegister(currentUsers);
                 if (CurrentUser.IsValid)
@@ -76,7 +76,8 @@ namespace MVVM1.ViewModel
                     curUserLog = CurrentUser;
                     Serializer.Serialize(currentUsers);
                     Application.Current.MainWindow.Content = new MenuViewModel();
-                    MenuViewModel.currentUser = CurrentUser;
+                    Serializer.SerializeUser(CurrentUser);
+                }
                 }
             }
         }

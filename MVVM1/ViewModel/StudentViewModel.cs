@@ -29,7 +29,7 @@ namespace MVVM1.ViewModel
 
         public StudentViewModel()
         {
-            user = MenuViewModel.currentUser;
+            user = Serializer.DeserializeUser();
             BrowseCommand = new MyICommand(OnBrowse);
             AddCommand = new MyICommand(OnAdd);
             Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\bin\Debug\addLogo.png", true);
@@ -85,6 +85,7 @@ namespace MVVM1.ViewModel
 
         private void OnAdd()
         {
+            user = Serializer.DeserializeUser();
             int count = 0;
             int number = -1;
             CurrentPicture = new Picture(uri, Title, Description);
@@ -103,6 +104,7 @@ namespace MVVM1.ViewModel
                     count++;
                 }
                 allUsers.Users[number].Pictures.Add(CurrentPicture);
+                Serializer.SerializeUser(allUsers.Users[number]);
                 Serializer.Serialize(allUsers);
             }
         }

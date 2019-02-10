@@ -8,7 +8,7 @@
              xmlns:viewModel="clr-namespace:MVVM1.ViewModel"
              vml:ViewModelLocator.AutoHookedUpViewModel="True"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="301">
     <UserControl.DataContext>
         <viewModel:MenuViewModel/>
     </UserControl.DataContext>
@@ -22,12 +22,6 @@
         <DataTemplate DataType="{x:Type viewModel:PictureViewModel}">
             <local:PictureView/>
         </DataTemplate>
-        <Style x:Key="myLBStyle" TargetType="{x:Type MenuItem}">
-            <Style.Resources>
-                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
-                             Color="Transparent"/>
-            </Style.Resources>
-        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -35,16 +29,28 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Margin="5">
-            <Menu DockPanel.Dock="Top" Name="Menu1" ItemContainerStyle="{StaticResource myLBStyle}">
-                <MenuItem Header="Home" Command="{Binding NavCommand}" Name="MenuItem1"
-                          CommandParameter="picView"/>
-                <MenuItem Header="List View" Command="{Binding NavCommand}" Name="MenuItem2"
-                          CommandParameter="addPic"/>
-                <MenuItem Header="Account Details" Command="{Binding NavCommand}" CommandParameter="accountDet" Name="MenuItem3"/>
+            <Menu DockPanel.Dock="Top" Name="Menu1" Height="15">
+                <MenuItem Command="{Binding NavCommand}" Name="MenuItem1" Width="96"
+                          CommandParameter="picView">
+                    <MenuItem.Header>
+                        <TextBlock Text="Picture View" FontFamily="Arial" FontWeight="Bold"></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{Binding NavCommand}" Name="MenuItem2" Width="96"
+                          CommandParameter="addPic">
+                    <MenuItem.Header>
+                        <TextBlock Text="Add picture" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Width="80"></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Command="{Binding NavCommand}" CommandParameter="accountDet" Name="MenuItem3" Width="96">
+                    <MenuItem.Header>
+                        <TextBlock Text="Account change" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Width="80"></TextBlock>
+                    </MenuItem.Header>
+                </MenuItem>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">
-            <ContentControl Content="{Binding CurrentViewModel}"/>
+            <ContentControl Content="{Binding CurrentViewModel}" Height="420" Width="300"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -7,13 +7,16 @@
              xmlns:vml="clr-namespace:MVVM1.VML"
              vml:ViewModelLocator.AutoHookedUpViewModel="True"
              mc:Ignorable="d" 
-             d:DesignHeight="415" d:DesignWidth="300">
+             d:DesignHeight="420" d:DesignWidth="300">
     <Grid>
-        <Button Content="Change" HorizontalAlignment="Left" Margin="62,328,0,0" VerticalAlignment="Top" Width="167" Height="53" Command="{Binding ChangeCommand}"/>
-        <TextBox HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Margin="62,60,0,0" Text="{Binding CurrentUser.Username}"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="62,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Text="{Binding CurrentUser.Password}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="42" Text="{Binding CurrentUser.ValidationErrors[Username]}"/>
-        <TextBlock HorizontalAlignment="Left" Margin="62,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Height="41" Text="{Binding CurrentUser.ValidationErrors[Password]}"/>
+        <Button Content="Change username" HorizontalAlignment="Left" Margin="36,146,0,0" VerticalAlignment="Top" Width="224" Height="53" Command="{Binding ChangeCommand}" FontSize="25" FontWeight="ExtraBold" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="56" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="224" Margin="36,59,0,0" Text="{Binding Username}" FontSize="25" HorizontalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="56" Margin="36,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Text="{Binding Password}" HorizontalContentAlignment="Center" FontSize="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="26" Text="{Binding CurrentUser.ValidationErrors[Username]}" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228" Height="26" Text="{Binding CurrentUser.ValidationErrors[Password]}" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Margin="36,28,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="26" Width="138" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,204,0,0" TextWrapping="Wrap" Text="Password:" Height="35" Width="167" FontSize="20"/>
+        <Button Content="Change password" HorizontalAlignment="Left" Margin="36,331,0,0" VerticalAlignment="Top" Width="224" Height="57" FontSize="25" FontWeight="ExtraBold" Command="{Binding ChangeCommandPass}"/>
 
     </Grid>
 </UserControl>
