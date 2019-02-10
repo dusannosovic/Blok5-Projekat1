@@ -9,7 +9,7 @@
              xmlns:vml="clr-namespace:MVVM1.VML"
              vml:ViewModelLocator.AutoHookedUpViewModel="True"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Width="300">
+             d:DesignHeight="410" Width="300">
     <UserControl.DataContext>
         <viewModel:PictureViewModel/>
     </UserControl.DataContext>
@@ -26,7 +26,7 @@
         <StackPanel Orientation="Vertical">
             <ListView ItemsSource="{Binding Pictures}"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                          ScrollViewer.VerticalScrollBarVisibility="Auto" Height="400"/>
         </StackPanel>
     </Grid>
 </UserControl>

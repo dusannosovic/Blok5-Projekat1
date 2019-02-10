@@ -19,6 +19,8 @@ namespace MVVM1.ViewModel
         public Users user { get; set; }
         public UserList allUsers { get; set; }
         public MyICommand BrowseCommand { get; set; }
+
+        public Picture currentPicture = new Picture();
         public MyICommand AddCommand { get; set; }
         private string description;
         private string title;
@@ -41,6 +43,16 @@ namespace MVVM1.ViewModel
             {
                 bitmapSource = value;
                 OnPropertyChanged("ButtonSource");
+            }
+        }
+
+        public Picture CurrentPicture
+        {
+            get { return currentPicture; }
+            set
+            {
+                currentPicture= value;
+                OnPropertyChanged("CurrentPicture");
             }
         }
 
@@ -75,20 +87,24 @@ namespace MVVM1.ViewModel
         {
             int count = 0;
             int number = -1;
-            Picture tempPic = new Picture(uri, Title, Description);
-            user.Pictures.Add(new Picture(uri, Title, Description));
-            PictureViewModel.picturesChange(user);
-            allUsers = Serializer.Deserialize();
-            foreach(Users tempuser in allUsers.Users)
+            CurrentPicture = new Picture(uri, Title, Description);
+            CurrentPicture.Validate();
+            if (CurrentPicture.IsValid)
             {
-                if(tempuser.Username == user.Username)
+                user.Pictures.Add(new Picture(uri, Title, Description));
+                PictureViewModel.picturesChange(user);
+                allUsers = Serializer.Deserialize();
+                foreach (Users tempuser in allUsers.Users)
                 {
-                    number = count;
+                    if (tempuser.Username == user.Username)
+                    {
+                        number = count;
+                    }
+                    count++;
                 }
-                count++;
+                allUsers.Users[number].Pictures.Add(CurrentPicture);
+                Serializer.Serialize(allUsers);
             }
-            allUsers.Users[number].Pictures.Add(tempPic);
-            Serializer.Serialize(allUsers);
         }
         private void OnBrowse()
         {

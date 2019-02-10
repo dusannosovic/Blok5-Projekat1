@@ -6,11 +6,49 @@ using System.Threading.Tasks;
 
 namespace MVVM1.Model
 {
-    public class Picture
+    public class Picture : ValidationBasePicture
     {
-        public string Uri { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        private string uri;
+        private string title;
+        private string description;
+
+        public string Uri
+        {
+            get { return uri; }
+            set
+            {
+                if (uri != value)
+                {
+                    uri = value;
+                    OnPropertyChanged("Uri");
+                }
+            }
+        }
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                if (title != value)
+                {
+                    title = value;
+                    OnPropertyChanged("Title");
+                }
+            }
+        }
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                if (description != value)
+                {
+                    description = value;
+                    OnPropertyChanged("Description");
+                }
+            }
+        }
+
         public Picture()
         {
 
@@ -21,6 +59,18 @@ namespace MVVM1.Model
             Uri = uri;
             Title = title;
             Description = description;
+        }
+
+        protected override void ValidateSelf()
+        {
+            if (string.IsNullOrWhiteSpace(this.uri))
+            {
+                this.ValidationErrors["Uri"] = "Must add picture";
+            }
+            if (string.IsNullOrWhiteSpace(this.title))
+            {
+                this.ValidationErrors["Title"] = "Your picture must have title";
+            }
         }
     }
 }

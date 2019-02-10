@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\8.semestar\Grafika\Projekat\MVVM1\obj\Debug\
+C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\obj\Debug\
 MVVM1
 none
 false
 DEBUG;TRACE
-G:\8.semestar\Grafika\Projekat\MVVM1\App.xaml
+C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\App.xaml
 6-636341380
 
-311457887875
+321100684364
 14-1001767708
 MainWindow.xaml;Views\AccountDetailsView.xaml;Views\HomeView.xaml;Views\MenuView.xaml;Views\PictureView.xaml;Views\StudentView.xaml;
 
-False
+True
 

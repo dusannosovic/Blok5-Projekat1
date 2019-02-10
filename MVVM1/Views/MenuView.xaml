@@ -22,6 +22,12 @@
         <DataTemplate DataType="{x:Type viewModel:PictureViewModel}">
             <local:PictureView/>
         </DataTemplate>
+        <Style x:Key="myLBStyle" TargetType="{x:Type MenuItem}">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                             Color="Transparent"/>
+            </Style.Resources>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -29,12 +35,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Margin="5">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Home" Command="{Binding NavCommand}"
+            <Menu DockPanel.Dock="Top" Name="Menu1" ItemContainerStyle="{StaticResource myLBStyle}">
+                <MenuItem Header="Home" Command="{Binding NavCommand}" Name="MenuItem1"
                           CommandParameter="picView"/>
-                <MenuItem Header="List View" Command="{Binding NavCommand}"
+                <MenuItem Header="List View" Command="{Binding NavCommand}" Name="MenuItem2"
                           CommandParameter="addPic"/>
-                <MenuItem Header="Account Details" Command="{Binding NavCommand}" CommandParameter="accountDet"/>
+                <MenuItem Header="Account Details" Command="{Binding NavCommand}" CommandParameter="accountDet" Name="MenuItem3"/>
             </Menu>
         </DockPanel>
         <Grid Grid.Row="1">

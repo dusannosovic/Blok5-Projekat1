@@ -29,5 +29,7 @@
         <TextBox HorizontalAlignment="Left" Height="36" Margin="56,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Text="{Binding Title}"/>
         <TextBox HorizontalAlignment="Left" Height="36" Margin="56,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" Text="{Binding Description}"/>
         <Button Content="Add" HorizontalAlignment="Left" Height="32" Margin="56,329,0,0" VerticalAlignment="Top" Width="188" Command="{Binding AddCommand}"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="56,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Text="{Binding CurrentPicture.ValidationErrors[Uri]}"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="57,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Text="{Binding CurrentPicture.ValidationErrors[Title]}"/>
     </Grid>
 </UserControl>

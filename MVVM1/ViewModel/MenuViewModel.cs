@@ -1,9 +1,12 @@
 ﻿using MVVM1.Model;
+using MVVM1.Views;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MVVM1.ViewModel
 {
