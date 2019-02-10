@@ -29,22 +29,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Margin="5">
-            <Menu DockPanel.Dock="Top" Name="Menu1" Height="15">
-                <MenuItem Command="{Binding NavCommand}" Name="MenuItem1" Width="96"
+            <Menu DockPanel.Dock="Top" Name="Menu1" Height="15" HorizontalAlignment="Center">
+                <MenuItem Command="{Binding NavCommand}" Name="MenuItem1" Width="90"
                           CommandParameter="picView">
                     <MenuItem.Header>
                         <TextBlock Text="Picture View" FontFamily="Arial" FontWeight="Bold"></TextBlock>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem Command="{Binding NavCommand}" Name="MenuItem2" Width="96"
+                <MenuItem Command="{Binding NavCommand}" Name="MenuItem2" Width="90"
                           CommandParameter="addPic">
                     <MenuItem.Header>
                         <TextBlock Text="Add picture" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Width="80"></TextBlock>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem Command="{Binding NavCommand}" CommandParameter="accountDet" Name="MenuItem3" Width="96">
+                <MenuItem Command="{Binding NavCommand}" CommandParameter="accountDet" Name="MenuItem3" Width="103">
                     <MenuItem.Header>
-                        <TextBlock Text="Account change" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Width="80"></TextBlock>
+                        <TextBlock Text="Account change" FontFamily="Arial" FontWeight="Bold" HorizontalAlignment="Center" Width="105"></TextBlock>
                     </MenuItem.Header>
                 </MenuItem>
             </Menu>

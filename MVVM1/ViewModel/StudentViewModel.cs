@@ -106,6 +106,11 @@ namespace MVVM1.ViewModel
                 allUsers.Users[number].Pictures.Add(CurrentPicture);
                 Serializer.SerializeUser(allUsers.Users[number]);
                 Serializer.Serialize(allUsers);
+                Title = "";
+                Description = "";
+                Bitmap bitmap = (Bitmap)Bitmap.FromFile(@"C:\Users\pc\Desktop\Blok5-Projekat1\MVVM1\bin\Debug\addLogo.png", true);
+                ButtonSource = BitmapConversion.BitmapToBitmapSource(bitmap);
+
             }
         }
         private void OnBrowse()

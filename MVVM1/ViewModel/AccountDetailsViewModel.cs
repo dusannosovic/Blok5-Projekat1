@@ -16,11 +16,13 @@ namespace MVVM1.ViewModel
         Users tempuser;
         private string username;
         private string password;
+        private string changed;
         public AccountDetailsViewModel()
         {
             //Serializer.Serialize(currentUsers);
             ChangeCommand = new MyICommand(Change);
             ChangeCommandPass = new MyICommand(ChangePass);
+            Changed = "";
 
             tempuser = Serializer.DeserializeUser();
             if(tempuser != null)
@@ -30,6 +32,16 @@ namespace MVVM1.ViewModel
             }
             //Username = tempuser.Username;
             //Password = tempuser.Password;
+        }
+
+        public string Changed
+        {
+            get { return changed; }
+            set
+            {
+                changed = value;
+                OnPropertyChanged("Changed");
+            }
         }
 
         public Users CurrentUser
@@ -70,6 +82,7 @@ namespace MVVM1.ViewModel
         }
         public void Change()
         {
+            Changed = "";
             tempuser = Serializer.DeserializeUser();
             int counter = 0;
             int number = -1;
@@ -101,12 +114,14 @@ namespace MVVM1.ViewModel
                         tempuser = userList.Users[number];
                         Serializer.Serialize(userList);
                         CurrentUser = tempuser;
+                        Changed = "Username succesfully changed!";
                     }
                 }
             }
         }
         public void ChangePass()
         {
+            Changed = "";
             tempuser = Serializer.DeserializeUser();
             int counter = 0;
             int number = -1;
@@ -136,6 +151,7 @@ namespace MVVM1.ViewModel
                         tempuser = userList.Users[number];
                         Serializer.Serialize(userList);
                         CurrentUser = tempuser;
+                        Changed = "Password succesfully changed!";
                     }
                 }
         

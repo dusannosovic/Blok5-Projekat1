@@ -18,10 +18,10 @@
             </Image>
         </Button>
         <TextBox HorizontalAlignment="Left" Height="52" Margin="36,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding Title}" VerticalContentAlignment="Center" FontSize="25"/>
-        <TextBox HorizontalAlignment="Left" Height="52" Margin="36,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding Description}" VerticalContentAlignment="Center" FontSize="25"/>
+        <TextBox HorizontalAlignment="Left" Height="52" Margin="36,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding Description}" VerticalContentAlignment="Top" FontSize="14"/>
         <Button Content="Add" HorizontalAlignment="Left" Height="65" Margin="36,328,0,0" VerticalAlignment="Top" Width="227" Command="{Binding AddCommand}" FontSize="35" FontWeight="ExtraBold"/>
         <TextBlock HorizontalAlignment="Left" Height="18" Margin="36,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding CurrentPicture.ValidationErrors[Uri]}" Foreground="Red"/>
-        <TextBlock HorizontalAlignment="Left" Height="18" Margin="36,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Text="{Binding CurrentPicture.ValidationErrors[Title]}" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="36,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Text="{Binding CurrentPicture.ValidationErrors[Title]}" Foreground="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,222,0,0" TextWrapping="Wrap" Text="Description:" VerticalAlignment="Top" Height="30" Width="128" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,123,0,0" TextWrapping="Wrap" Text="Title:" VerticalAlignment="Top" Height="30" Width="165" FontSize="20"/>
     </Grid>
